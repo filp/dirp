@@ -16,12 +16,12 @@
 		</span>
 	</div>
 <? endif ?>
-<? if( $bodyoverride ) : ?>
-	<?= $bodyoverride ?>
+<? if( $body_override ) : ?>
+	<?= $body_override ?>
 <? elseif( (array) $files): ?>
 	<div id="file-list">
 		<? foreach($files as $file): ?>
-
+			
 			<? if(!$file->visible): continue; endif ?>
 
 			<? if($file->isdir): ?>
@@ -47,9 +47,11 @@
 						<? endif ?>
 					</div>
 				</a>
+			<? $files_count++ //hackety hack ?>
 		<? endforeach ?>
 	</div>
-<? else: ?>
+<? endif ?>
+<? if(!$files_count): ?>
 	<div class="message">
 		<img src="<?= \dirp\app::asset('img/page_look.png') ?>" alt="uhhhh">
 		There's not a single file in sight!

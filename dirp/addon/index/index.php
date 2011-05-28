@@ -98,7 +98,8 @@ class index extends \dirp\addon\base
 				'crumbs' => $crumbs,
 				'root' => $req->get_base_uri() . '/',
 				'filesroot' => \dirp\app::cfg()->files_uri,
-				'bodyoverride' => $ev->body // body override by an event:
+				'body_override' => $ev->body, // body override by an event:
+				'files_count' // somewhat hacky way ;0
 			)
 		);
 		
