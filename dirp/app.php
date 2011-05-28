@@ -133,7 +133,6 @@ class app
 			}
 		}
 
-		//throw new \RuntimeException('hats!');
 		static::get_response()->write(static::get_master()->render());
 		addon\event::fire('shutdown', array());
 		static::get_response()->send();
@@ -228,13 +227,28 @@ class app
 
 	/**
 	 * exception_handler
-	 * internal exception handler for pretty printing
-	 * errorrrs!
+	 * internal exception handler for pretty printing errorrrs!
 	 *
 	 * @param object $exc
 	 */
 	public static function exception_handler($exc)
 	{
-		var_dump($exc);
+		$name = get_class($exc);
+		$message = $exc->getMessage();
+		$trace = htmlentities($exc->getTraceAsString());
+		$line = $exc->getLine() or 'n/a';
+		$file = $exc->getFile() or 'n/a';
+
+		// render an html view for this exception:
+		$html  = '<head><title>dirp : uh oh!</title>';
+		$html .= '<style type=text/css>html{background:#ced0d1}body{font:14px arial,tahoma,sans-serif;';
+		$html .= 'margin:20px}div{margin:10px 0}pre{padding:5px;overflow:auto}</style><body><h1>Uh oh!</h1>';
+		$html .= "<h2>An unhandled <code>$name</code> exception has ocurred!</h2>";
+		$html .= "<b>file</b>: <code>$file</code> <b>line</b>:$line";
+		$html .= "<div><b>message:</b><div style='margin:20px;background:white;font-size:16px;padding:10px'><code>$message</code></div></div>";
+		$html .= "<div><b>stack trace</b><pre>$trace</pre></div><hr><div><b>SERVER</b><pre>" . print_r($_SERVER, true) ."</pre></div>";
+		$html .= "<div><b>GET, POST</b><pre>" . print_r($_GET, true) . "</pre><pre>" . print_r($_POST, true) . "</pre></div>";
+		$html .= "<div><b>\dirp\http\\request</b><pre>" . print_r(static::get_request(), true) . "</pre></div>";
+		exit($html);
 	}
 }
