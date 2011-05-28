@@ -32,7 +32,7 @@
 			<? endif ?>
 					<div class="file <?= $file->isdir ? 'folder' : '' ?>">
 						<img alt="icon" class="fileicon" alt="icon" src="<?= \dirp\app::asset('img/'.$file->icon) ?>">
-						<span class="filename"><?= $file->displayname ?: $file->name ?></span>
+						<span class="filename"><?= rawurlencode($file->displayname ?: $file->name) ?></span>
 						<? if($file->size): ?>
 							<span class="filesize"><?= $file->get_pretty_size() ?></span>
 						<? endif ?>
