@@ -8,7 +8,6 @@
 			<? foreach($crumbs as $crumb => $path): ?>
 				<? if(empty($crumb)): continue; endif; ?>
 				<a class="crumb" href="<?= $path ?>"><?= $crumb ?></a>
-
 				<? if($crumbcount < count($crumbs) - 1): ?>
 					<span class="crumbspacer">/</span>
 				<? endif; $crumbcount++ ?>

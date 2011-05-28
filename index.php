@@ -79,7 +79,8 @@ $configuration = array(
 	'private' => array(
 						'/^_/',
 						'/^\.htaccess$/',
-						'/^index\./'
+						'/^index\./',
+						'/^gitkeep$/'
 					)
 );
 

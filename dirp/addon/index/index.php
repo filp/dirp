@@ -86,7 +86,7 @@ class index extends \dirp\addon\base
 		$crumbs = array();
 		foreach($parts as $i => $crumb)
 		{
-			$crumbs[$crumb] = $root .'/'. implode('/', array_slice($parts, 0, $i+1));
+			$crumbs[$crumb] = $root .'/'. rawurlencode(implode('/', array_slice($parts, 0, $i+1)));
 		}
 
 		$this->master()->title = 'viewing: /' . $relative;
