@@ -67,7 +67,7 @@ class index extends \dirp\addon\base
 
 		$path = file::safe_path($req->get('dir', '/'));
 		$files = file::from_directory($path);
-		$relative = htmlentities(file::to_relative_path($path));
+		$relative = file::to_relative_path($path);
 
 		// most likely tried to list a file. a file is 
 		// not a directory, silly.
