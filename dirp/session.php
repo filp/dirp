@@ -27,8 +27,8 @@ namespace dirp;
  *
  *	DIRP is a php5 file listing and utilities framework.
  *
- *	request
- *	abstraction class for an HTTP request.
+ *	session
+ *	session abstraction with namespace support
  *
  *	@author Filipe Dobreira <http://dirp.fildob.com>
  *	@version 1.0.0
