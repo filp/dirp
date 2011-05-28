@@ -26,13 +26,13 @@
 			<? if(!$file->visible): continue; endif ?>
 
 			<? if($file->isdir): ?>
-				<a href="<?= $root . '?dir=' . $relative .'/' . $file->name ?>">
+				<a href="<?= $root . '?dir=' . rawurlencode($relative .'/' . $file->name) ?>">
 			<? else: ?>
-				<a href="<?= $root . \dirp\file::to_path($filesroot, $relative ?: null, $file->name) ?>">
+				<a href="<?= $root . rawurlencode(\dirp\file::to_path($filesroot, $relative ?: null, $file->name)) ?>">
 			<? endif ?>
 					<div class="file <?= $file->isdir ? 'folder' : '' ?>">
 						<img alt="icon" class="fileicon" alt="icon" src="<?= \dirp\app::asset('img/'.$file->icon) ?>">
-						<span class="filename"><?= rawurlencode($file->displayname ?: $file->name) ?></span>
+						<span class="filename"><?= $file->displayname ?: $file->name ?></span>
 						<? if($file->size): ?>
 							<span class="filesize"><?= $file->get_pretty_size() ?></span>
 						<? endif ?>
