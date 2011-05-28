@@ -256,7 +256,7 @@ class file extends \dirp\helper\params
 	 */
 	public static function to_path()
 	{
-		return trim(implode('/', array_filter(func_get_args(), 'is_string')), '\\/ ');
+		return trim(implode('/', array_filter(func_get_args(), 'is_string')), '/');
 	}
 
 	/**
