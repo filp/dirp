@@ -99,7 +99,7 @@ class index extends \dirp\addon\base
 				'root' => $req->get_base_uri() . '/',
 				'filesroot' => \dirp\app::cfg()->files_uri,
 				'body_override' => $ev->body, // body override by an event:
-				'files_count' // somewhat hacky way ;0
+				'files_count' => 0 // somewhat hacky way ;0
 			)
 		);
 		
