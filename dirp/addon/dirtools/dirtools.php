@@ -50,7 +50,9 @@ class dirtools extends \dirp\addon\base
 			'description' => 'Directory-based toolset.',
 			'author'	  => 'Filipe Dobreira',
 			'version' 	  => '1.0.0',
-
+			'routes'      => array(
+				'/dir/login?' => 'password_login'
+			),
 			'listen' 	  => array( 'indexlist' )
 		);
 	}
@@ -74,9 +76,33 @@ class dirtools extends \dirp\addon\base
 				event::fire('dirconfig', array('config' => $config, 'indexlist' => $index));
 
 				// passworded directory:
-				
+				if($config->password)
+				{	
+					// TO-DO: finish this
+					$session = \dirp\session::factory('dirtools');
+					if(!$session->get('pwd-'.$index->relative))
+					{
+						$index->body = $this->view('password')->render(
+							array(
+								'relative' => $index->relative,
+								'path'     => $index->path
+							)
+						);
+					}
+				}
 			}
 		}
+	}
+
+	/**
+	 * password_login
+	 * front-end handler for passworded directories
+	 *
+	 * @param \dirp\http\request $req
+	 */
+	public function password_login(\dirp\http\request $req)
+	{
+		// TO-DO: finish this
 	}
 
 	/**

@@ -64,12 +64,8 @@ class index extends \dirp\addon\base
 	 */
 	public function index(\dirp\http\request $req, \dirp\http\response $res)
 	{
-		$path = event::fire('getindex', 
-			array(
-				'path' => file::safe_path($req->get('dir', '/'))
-			)
-		)->path;
-		
+
+		$path = file::safe_path($req->get('dir', '/'));
 		$files = file::from_directory($path);
 		$relative = htmlentities(file::to_relative_path($path));
 
@@ -80,7 +76,9 @@ class index extends \dirp\addon\base
 			$res->redirect($req->get_base_uri());
 		}
 
-		$files = event::fire('indexlist', array('files' => $files))->files;
+		$ev = event::fire('indexlist', 
+			array('files' => $files, 'body' => null, 'relative' => $relative, 'path' => $path)
+		);
 
 		// prepare the breadcrumb:
 		$root = $req->get_base_uri() . '?dir=';
@@ -95,13 +93,15 @@ class index extends \dirp\addon\base
 		$this->master()->css[] = \dirp\app::asset('css/index/index.css');
 		$this->master()->body = $this->view('list')->render(
 			array(	
-				'files' => $files,
+				'files' => $ev->files,
 				'relative' => $relative,
 				'crumbs' => $crumbs,
 				'root' => $req->get_base_uri() . '/',
-				'filesroot' => \dirp\app::cfg()->files_uri
+				'filesroot' => \dirp\app::cfg()->files_uri,
+				'bodyoverride' => $ev->body // body override by an event:
 			)
 		);
+		
 	}
 
 	/**

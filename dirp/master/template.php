@@ -59,7 +59,7 @@
 		</div>
 		
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-		<script type="text/javascript" src="<?= \dirp\app::asset('js/dirp.js') ?>"></script>
+		<!-- <script type="text/javascript" src="<?= \dirp\app::asset('js/dirp.js') ?>"></script> -->
 		<? if($js): ?>
 			<? foreach($js as $script): ?>
 				<script type="text/javascript" src="<?= $script ?>"></script>

@@ -77,7 +77,10 @@ class app
 			throw new \Exception("The 'short_open_tag' setting MUST be enabled in your php.ini to use dirp, sorry!");
 		}
 
+		// setup the autoloader and the exception handler:
+		set_exception_handler(array('\dirp\app', 'exception_handler'));
 		static::_autoloader_init();
+
 		static::$_cfg = new helper\params($configuration);
 
 		static::$_http_request = http\request::factory(
@@ -130,6 +133,7 @@ class app
 			}
 		}
 
+		//throw new \RuntimeException('hats!');
 		static::get_response()->write(static::get_master()->render());
 		addon\event::fire('shutdown', array());
 		static::get_response()->send();
@@ -220,5 +224,17 @@ class app
 		{
 			call_user_func($class.'::_init');
 		}
+	}
+
+	/**
+	 * exception_handler
+	 * internal exception handler for pretty printing
+	 * errorrrs!
+	 *
+	 * @param object $exc
+	 */
+	public static function exception_handler($exc)
+	{
+		var_dump($exc);
 	}
 }

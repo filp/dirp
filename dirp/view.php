@@ -121,7 +121,7 @@ class view extends \dirp\helper\params
 	{
 		// if for some reason, later on, we want to force a root path
 		$root = static::$_base_root or ROOT;
-		$path = rtrim(ROOT, '/') . DS . ltrim($path, '/');
+		$_path = rtrim(ROOT, '/') . DS . ltrim($path, '/');
 
 		if($params)
 		{
@@ -129,7 +129,7 @@ class view extends \dirp\helper\params
 		}
 
 		ob_start();
-		require $path . '.php';
+		require $_path . '.php';
 		return ob_get_clean();
 	}
 }

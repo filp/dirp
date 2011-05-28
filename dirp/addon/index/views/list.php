@@ -17,10 +17,12 @@
 		</span>
 	</div>
 <? endif ?>
-<? if( (array) $files): ?>
+<? if( $bodyoverride ) : ?>
+	<?= $bodyoverride ?>
+<? elseif( (array) $files): ?>
 	<div id="file-list">
 		<? foreach($files as $file): ?>
-		
+
 			<? if(!$file->visible): continue; endif ?>
 
 			<? if($file->isdir): ?>
