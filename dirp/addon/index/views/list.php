@@ -27,7 +27,7 @@
 			<? if($file->isdir): ?>
 				<a href="<?= $root . '?dir=' . rawurlencode($relative .'/' . $file->name) ?>">
 			<? else: ?>
-				<a href="<?=  $root . \dirp\file::to_path($filesroot, rawurlencode(trim($relative, '/')) ?: null, rawurlencode($file->name)) ?>">
+				<a href="<?=  $root . \dirp\file::to_path($filesroot, trim($relative, '/') ?: null, rawurlencode($file->name)) ?>">
 			<? endif ?>
 					<div class="file <?= $file->isdir ? 'folder' : '' ?>">
 						<img alt="icon" class="fileicon" alt="icon" src="<?= \dirp\app::asset('img/'.$file->icon) ?>">
