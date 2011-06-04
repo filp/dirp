@@ -79,8 +79,12 @@ $configuration = array(
 	'private' => array(
 						'/^_/',
 						'/^\.htaccess$/',
-						'/^index\./',
-						'/^gitkeep$/'
+						'/^index\.php/',
+						'/^gitkeep$/',
+						'/assets/',
+						'/dirp/',
+						'/files/',
+						'/\.gitignore/'
 					)
 );
 

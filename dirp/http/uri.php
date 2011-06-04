@@ -91,7 +91,7 @@ class uri
            	$this->_base_uri = rtrim($base, '/');
 		}
 
-		return $this->_base_uri;
+		return ltrim($this->_base_uri, '\\');
 	}
 
 	/**
