@@ -172,7 +172,10 @@ class file extends \dirp\helper\params
 
 		// losing filesize, somewhere, somehow, for
 		// some reason. hackety hack away:
-		$this->size = $file->getSize();
+		if($this->isfile)
+		{
+			$this->size = $file->getSize();
+		}
 	}
 
 	/**
