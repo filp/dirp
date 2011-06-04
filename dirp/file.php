@@ -47,7 +47,7 @@ class file extends \dirp\helper\params
 	 */
 	private static $_map = array(
 		'name' 		 => 'getFilename',
-		'size'		 => 'getSize',
+	//	'size'		 => 'getSize',
 		'atime' 	 => 'getATime',
 		'ctime' 	 => 'getCTime',
 	//	'extension'  => 'getExtension', scumbag SplFileInfo doesn't actually implement this :|
