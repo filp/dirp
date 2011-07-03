@@ -28,7 +28,7 @@ namespace dirp\exception;
  *	DIRP is a php5 file listing and utilities framework.
  *
  *	halt
- *	used by the router to trigger a route halt
+ *	used by the router/event class to trigger a route/event halt
  *
  *	@author Filipe Dobreira <http://dirp.fildob.com>
  *	@version 1.0.0

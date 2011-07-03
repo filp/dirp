@@ -78,7 +78,7 @@ class event extends \dirp\helper\params
 	 */
 	public function last()
 	{
-		throw new \dirp\exception\event_break;
+		throw new \dirp\exception\halt;
 	}
 
 	/**
@@ -111,7 +111,7 @@ class event extends \dirp\helper\params
 			{
 				call_user_func(array($listener, 'event_' . $name), $event);
 			}
-			catch(\dirp\exception\event_break $e)
+			catch(\dirp\exception\halt $e)
 			{
 				break;
 			}

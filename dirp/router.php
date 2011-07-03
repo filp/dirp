@@ -88,7 +88,7 @@ class router
     				// check for a 'before' handler for this controller.
     				if(method_exists($handler[0], 'before'))
     				{
-    					call_user_func($handler[0], 'before', $request, $response);
+    					call_user_func(array($handler[0], 'before'), $request, $response);
     				}
 
 	    			if($ret = call_user_func(array($handler[0], $handler[1]), $request, $response))
