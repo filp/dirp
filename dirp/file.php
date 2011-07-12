@@ -70,13 +70,13 @@ class file extends \dirp\helper\params
 	 * read
 	 * returns this file's contents
 	 *
-	 * @return string|null
+	 * @return string|bool
 	 */
 	public function read()
 	{
 		if(!$this->isfile || !$this->readable)
 		{
-			return null;
+			return false;
 		}
 
 		return file_get_contents($this->fullpath);
