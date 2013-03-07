@@ -1,5 +1,5 @@
 <?php
-	
+
 /**
  *	Copyright (C) 2011 by Filipe Dobreira
  *
@@ -45,8 +45,8 @@ $configuration = array(
 	 *
 	 *	WARNING: by default, this directory and all sub-directories
 	 *	will become publicly viewable.
-	 *	
-	 *	WARNING: by default, this directory must reside in the 
+	 *
+	 *	WARNING: by default, this directory must reside in the
 	 *	document root, or files therein will not be accessible.
 	 *
 	 *		example: 'files' => '/home/user/public_html/myfiles/'
@@ -56,8 +56,8 @@ $configuration = array(
 	'files'		=>	__DIR__ . '/files',
 
 	/*
-	 *	A *uri* root pointing to the files location, or a qualified 
-	 *	handler. By default, file links will be in the following 
+	 *	A *uri* root pointing to the files location, or a qualified
+	 *	handler. By default, file links will be in the following
 	 *	format:
 	 *
 	 *	<files.uri>/path/to/file.ext
@@ -82,7 +82,6 @@ $configuration = array(
 						'/^index\.php/',
 						'/^gitkeep$/',
 						'/assets/',
-						'/dirp/',
 						'/files/',
 						'/\.gitignore/'
 					)
