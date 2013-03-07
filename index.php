@@ -82,7 +82,6 @@ $configuration = array(
 						'/^index\.php/',
 						'/^gitkeep$/',
 						'/assets/',
-						'/files/',
 						'/\.gitignore/'
 					)
 );
