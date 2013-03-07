@@ -51,13 +51,13 @@
 		</div>
 
 		<div id="footer">
-			powered by 
-			<a class="button" style="margin-right:0" href="http://dirp.in">
+			powered by
+			<a class="button" style="margin-right:0" href="http://github.com/filp/dirp">
 				<img src="<?= \dirp\app::asset('img/folder_heart2.png') ?>">
 				dirp
 			</a>
 		</div>
-		
+
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 		<!-- <script type="text/javascript" src="<?= \dirp\app::asset('js/dirp.js') ?>"></script> -->
 		<? if($js): ?>
