@@ -5,6 +5,10 @@ a breeze. Developed as a response to the poorly-written one-off directory
 listing scripts available, Dirp strives to be a modern, efficient, extensible
 and developer-friendly solution.
 
+#### Warning:
+
+This project is **no longer maintained** - use at your own risk!
+
 ##Features:##
 
 * Full-stack MVC-style framework, properly namespaced.
